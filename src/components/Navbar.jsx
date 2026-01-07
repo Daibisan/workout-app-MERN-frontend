@@ -30,8 +30,8 @@ export default function Navbar() {
 
                 {!user && (
                     <div className="flex gap-4">
-                        <Link to="/login">Login</Link>
-                        <Link to="/signup">Signup</Link>
+                        <Link to="/login" replace>Login</Link>
+                        <Link to="/signup" replace>Signup</Link>
                     </div>
                 )}
             </nav>

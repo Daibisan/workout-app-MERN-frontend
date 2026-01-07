@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import WorkoutDetails from "./components/WorkoutDetails";
 import WorkoutForm from "./components/WorkoutForm";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const workoutsReducer = (state, action) => {
     switch (action.type) {
@@ -19,12 +20,18 @@ const workoutsReducer = (state, action) => {
 
 export default function HomePage() {
     const [workouts, dispatchWorkouts] = useReducer(workoutsReducer, []);
+    const { user } = useAuthContext();
 
     useEffect(() => {
         const fetchWorkouts = async () => {
             try {
                 const response = await fetch(
                     "http://localhost:4000/api/workouts",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${user.token}`,
+                        },
+                    },
                 );
                 const json = await response.json();
 

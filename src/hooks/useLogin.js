@@ -1,10 +1,12 @@
 import { useState } from "react";
 import useAuthContext from "./useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function useLogin() {
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const { dispatch } = useAuthContext();
+    const navigate = useNavigate();
 
     async function login(email, password) {
         try {
@@ -35,6 +37,8 @@ export default function useLogin() {
 
             setError("");
             setIsLoading(false);
+
+            navigate("/", { replace: true });
         } catch (error) {
             console.log(error);
             setError("Something went wrong...");
