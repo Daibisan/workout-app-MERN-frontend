@@ -25,7 +25,7 @@ export default function WorkoutDetails({ workout, dispatchWorkouts }) {
             if (response.ok) {
                 dispatchWorkouts({
                     type: "DELETE_WORKOUT",
-                    payload: json.deletedWorkout,
+                    payload: json.workout,
                 });
             }
         } catch (error) {
