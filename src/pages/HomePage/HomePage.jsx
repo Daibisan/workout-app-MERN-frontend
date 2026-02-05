@@ -26,7 +26,7 @@ export default function HomePage() {
         const fetchWorkouts = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:4000/api/workouts",
+                    `${import.meta.env.VITE_API_URL}/api/workouts`,
                     {
                         headers: {
                             Authorization: `Bearer ${user.token}`,

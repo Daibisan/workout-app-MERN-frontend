@@ -16,7 +16,7 @@ export default function WorkoutForm({ dispatchWorkouts }) {
         }
 
         try {
-            const response = await fetch("http://localhost:4000/api/workouts", {
+            const response = await fetch(`${import.meta.env.VITE_APP_URL}/api/workouts`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

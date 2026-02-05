@@ -12,7 +12,7 @@ export default function WorkoutDetails({ workout, dispatchWorkouts }) {
         const workout_id = e.currentTarget.dataset.id;
         try {
             const response = await fetch(
-                `http://localhost:4000/api/workouts/${workout_id}`,
+                `${import.meta.env.VITE_API_URL}/api/workouts/${workout_id}`,
                 {
                     method: "DELETE",
                     headers: {
